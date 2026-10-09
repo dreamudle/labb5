@@ -24,7 +24,7 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  bool saved = false; // нажата ли закладка
+  bool saved = false; 
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,6 @@ class _ProductScreenState extends State<ProductScreen> {
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
       ),
-
-      // Center + ConstrainedBox: на большом экране контент не растягивается
-      // SingleChildScrollView: на маленьком экране нет overflow
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 700),
@@ -44,8 +41,6 @@ class _ProductScreenState extends State<ProductScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 1. Stack: картинка + закладка
-                // AspectRatio делает фото адаптивным при изменении окна
                 AspectRatio(
                   aspectRatio: 16 / 10,
                   child: Stack(
@@ -92,7 +87,6 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 2. Row: название (Expanded) и цена
                       Row(
                         children: [
                           const Expanded(
@@ -118,7 +112,6 @@ class _ProductScreenState extends State<ProductScreen> {
 
                       const SizedBox(height: 10),
 
-                      // Рейтинг: звёзды + текст
                       Row(
                         children: [
                           const Icon(Icons.star, color: Colors.amber),
@@ -138,7 +131,6 @@ class _ProductScreenState extends State<ProductScreen> {
 
                       const SizedBox(height: 16),
 
-                      // 3. Wrap: категории переносятся на новую строку
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
@@ -175,7 +167,6 @@ class _ProductScreenState extends State<ProductScreen> {
         ),
       ),
 
-      // 4. Нижняя панель: кнопка на всю ширину через Expanded
       bottomNavigationBar: Container(
         color: Colors.white,
         child: SafeArea(
